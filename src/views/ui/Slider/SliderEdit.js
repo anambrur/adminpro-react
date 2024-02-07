@@ -12,7 +12,7 @@ export default function SliderEdit() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost/reactjs/adminpro-react-lite/backend/API/geiID.php?id=${id}`
+        `http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/geiID.php?id=${id}`
       )
       .then((res) => {
         setSlHeader(res.data.heading);
@@ -29,7 +29,7 @@ export default function SliderEdit() {
     formdata.append("id", id);
     axios
       .post(
-        "http://localhost/reactjs/adminpro-react-lite/backend/API/updateSlider.php",
+        "http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/updateSlider.php",
         formdata,
         {
           headers: {

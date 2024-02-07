@@ -13,8 +13,8 @@ const navigation = [
     icon: "bi bi-bell",
   },
   {
-    title: "Badges",
-    href: "/badges",
+    title: "Product",
+    href: "/product-list",
     icon: "bi bi-patch-check",
   },
   {

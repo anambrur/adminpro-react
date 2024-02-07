@@ -7,7 +7,7 @@ $con = new mysqli('localhost', 'root', '', 'fruitables');
 $slHeader = $_POST['slHeader'];
 $sltitle = $_POST['sltitle'];
 
-$target_dir = "../images/";
+$target_dir = "../../images/";
 $target_file = $target_dir . basename($_FILES["slphoto"]["name"]);
 if (move_uploaded_file($_FILES["slphoto"]["tmp_name"], $target_file)) {
     $slphoto = $_FILES["slphoto"]["name"];

@@ -2,27 +2,27 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function SliderList() {
-  const [products, setProducts] = useState([]);
+export default function ProductList() {
+  const [product, setProduct] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/getSlider.php")
-      .then((res) => setProducts(res.data));
+      .get("http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/getProduct.php")
+      .then((res) => setProduct(res.data));
   }, []);
 
-  const SlDelete = (id) => {
+  const ProdDelete = (id) => {
     axios
       .get(
-        `http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/delSlider.php?id=${id}`
+        `http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/delProduct.php?id=${id}`
       )
       .then((res) => {
         console.log(res.data);
         axios
           .get(
-            "http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/getSlider.php"
+            "http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/getProduct.php"
           )
-          .then((res) => setProducts(res.data));
+          .then((res) => setProduct(res.data));
       });
   };
 
@@ -31,28 +31,30 @@ export default function SliderList() {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <NavLink to="/slider-add" className="btn btn-warning my-2">
-              Add Slider
+            <NavLink to="/product-add" className="btn btn-warning my-2">
+              Add Product
             </NavLink>
             <table className="table table-bordered">
               <thead>
                 <tr>
                   <th scope="col">SL</th>
-                  <th scope="col">Slider Header</th>
-                  <th scope="col">Slider Title</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Details</th>
+                  <th scope="col">Price</th>
                   <th scope="col">Photo</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {products.map((d, i) => {
+                {product.map((d, i) => {
                   return (
                     <tr>
                       <th scope="row" key={i}>
                         {i + 1}
                       </th>
-                      <td>{d.heading}</td>
-                      <td>{d.title}</td>
+                      <td>{d.name}</td>
+                      <td>{d.details}</td>
+                      <td>{d.price}</td>
                       <td>
                         <img
                           src={`http://localhost/reactjs/adminpro-react/backend/images/${d.photo}`}
@@ -62,18 +64,18 @@ export default function SliderList() {
                         {d.photo}
                       </td>
                       <td>
-                        <NavLink to={`/slider-edit/${d.id}`}>
+                        <NavLink to={`/product-edit/${d.id}`}>
                           <i
                             className="far fa-edit me-2"
                             style={{ color: "green" }}
                           ></i>
                         </NavLink>
 
-                        <NavLink to="/slider-list">
+                        <NavLink to="/product-list">
                           <i
                             className="fas fa-trash"
                             style={{ color: "red" }}
-                            onClick={() => SlDelete(d.id)}
+                            onClick={() => ProdDelete(d.id)}
                           ></i>
                         </NavLink>
                       </td>

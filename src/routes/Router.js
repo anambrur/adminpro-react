@@ -3,6 +3,9 @@ import { Navigate } from "react-router-dom";
 import SliderList from "../views/ui/Slider/SliderList.js";
 import SliderAdd from "../views/ui/Slider/SliderAdd.js";
 import SliderEdit from "../views/ui/Slider/SliderEdit.js";
+import ProductEdit from "../views/ui/Products/ProductEdit.js";
+import ProductList from "../views/ui/Products/ProductList.js";
+import ProductAdd from "../views/ui/Products/ProductAdd.js";
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
@@ -41,6 +44,9 @@ const ThemeRoutes = [
       { path: "/slider-list", exact: true, element: <SliderList/> },
       { path: "/slider-add", exact: true, element: <SliderAdd/> },
       { path: "/slider-edit/:id", exact: true, element: <SliderEdit/> },
+      { path: "/product-edit/:id", exact: true, element: <ProductEdit/> },
+      { path: "/product-list", exact: true, element: <ProductList/> },
+      { path: "/product-add", exact: true, element: <ProductAdd/> },
     ],
   },
 ];

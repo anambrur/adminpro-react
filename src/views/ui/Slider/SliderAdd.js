@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SliderAdd() {
   const [slHeader, setSlHeader] = useState("");
   const [sltitle, setSlTitle] = useState("");
   const [slphoto, setSlPhoto] = useState("");
+  const navi=useNavigate()
   const saveSlider = () => {
     const formdata = new FormData();
     formdata.append("slHeader", slHeader);
@@ -12,7 +14,7 @@ export default function SliderAdd() {
     formdata.append("slphoto", slphoto);
     axios
       .post(
-        "http://localhost/reactjs/adminpro-react-lite/backend/API/setSlider.php",
+        "http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/setSlider.php",
         formdata,
         {
           headers: {
@@ -23,6 +25,7 @@ export default function SliderAdd() {
       .then((res) => {
         console.log(res.data);
       });
+      navi('/slider-list')
   };
 
   return (
