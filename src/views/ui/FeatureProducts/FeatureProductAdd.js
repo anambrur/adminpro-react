@@ -2,19 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function SliderAdd() {
-  const [slHeader, setSlHeader] = useState("");
-  const [sltitle, setSlTitle] = useState("");
-  const [slphoto, setSlPhoto] = useState("");
-  const navi=useNavigate()
-  const saveSlider = () => {
+export default function FeatureProductAdd() {
+  const [feaprodName, setfeaProdName] = useState("");
+  const [feaprodDetails, setfeaProdDetails] = useState("");
+  const [feaprodPhoto, setfeaProdPhoto] = useState("");
+  const navi = useNavigate();
+  const saveReatureProduct = () => {
     const formdata = new FormData();
-    formdata.append("slHeader", slHeader);
-    formdata.append("sltitle", sltitle);
-    formdata.append("slphoto", slphoto);
+    formdata.append("feaprodName", feaprodName);
+    formdata.append("feaprodDetails", feaprodDetails);
+    formdata.append("feaprodPhoto", feaprodPhoto);
     axios
       .post(
-        "http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/setSlider.php",
+        "http://localhost/reactjs/adminpro-react/backend/API/FeatureProducts/setFeatProduct.php",
         formdata,
         {
           headers: {
@@ -24,8 +24,9 @@ export default function SliderAdd() {
       )
       .then((res) => {
         console.log(res.data);
-        navi('/slider-list')
+        navi("/feature-product-list");
       });
+    
   };
 
   return (
@@ -35,34 +36,35 @@ export default function SliderAdd() {
           <div className="col-md-6">
             <form>
               <div className="mb-3">
-                <label className="form-label">Slider Header</label>
+                <label className="form-label">Name:</label>
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setSlHeader(e.target.value)}
+                  onChange={(e) => setfeaProdName(e.target.value)}
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Slider Title</label>
+                <label className="form-label">Details:</label>
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setSlTitle(e.target.value)}
+                  onChange={(e) => setfeaProdDetails(e.target.value)}
                 />
               </div>
+              
               <div className="mb-3">
-                <label className="form-label">Slider Image</label>
+                <label className="form-label">Image:</label>
                 <input
                   type="file"
                   className="form-control"
-                  onChange={(e) => setSlPhoto(e.target.files[0])}
+                  onChange={(e) => setfeaProdPhoto(e.target.files[0])}
                 />
               </div>
 
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={saveSlider}
+                onClick={saveReatureProduct}
               >
                 Submit
               </button>

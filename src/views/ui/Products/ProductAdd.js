@@ -26,8 +26,8 @@ export default function ProductAdd() {
       )
       .then((res) => {
         console.log(res.data);
+        navi("/product-list");
       });
-    navi("/product-list");
   };
 
   return (

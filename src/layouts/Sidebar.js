@@ -18,8 +18,8 @@ const navigation = [
     icon: "bi bi-patch-check",
   },
   {
-    title: "Buttons",
-    href: "/buttons",
+    title: "Feature Product",
+    href: "/feature-product-list",
     icon: "bi bi-hdd-stack",
   },
   {
