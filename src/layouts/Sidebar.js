@@ -23,8 +23,8 @@ const navigation = [
     icon: "bi bi-hdd-stack",
   },
   {
-    title: "Cards",
-    href: "/cards",
+    title: "Organic Vegetable",
+    href: "/organic-vegetable-list",
     icon: "bi bi-card-text",
   },
   {

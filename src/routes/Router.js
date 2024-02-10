@@ -9,6 +9,9 @@ import ProductAdd from "../views/ui/Products/ProductAdd.js";
 import FeatureProductList from "../views/ui/FeatureProducts/FeatureProductList.js";
 import FeatureProductAdd from "../views/ui/FeatureProducts/FeatureProductAdd.js";
 import FeatureProductEdit from "../views/ui/FeatureProducts/FeatureProductEdit.js";
+import OrganicVegetableList from "../views/ui/OrganicVegetable/OrganicVegetableList.js";
+import OrganicVegetableadd from "../views/ui/OrganicVegetable/OrganicVegetableAdd.js";
+
 
 /****Layouts*****/
 const FullLayout = lazy(() => import("../layouts/FullLayout.js"));
@@ -53,6 +56,8 @@ const ThemeRoutes = [
       { path: "/feature-product-list", exact: true, element: <FeatureProductList/> },
       { path: "/feature-product-add", exact: true, element: <FeatureProductAdd/> },
       { path: "/feature-product-edit/:id", exact: true, element: <FeatureProductEdit/> },
+      { path: "/organic-vegetable-list", exact: true, element: <OrganicVegetableList/> },
+      { path: "/organic-vegetable-add", exact: true, element: <OrganicVegetableadd/> },
     ],
   },
 ];
