@@ -5,6 +5,6 @@ header('Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT');
 
 $con=new mysqli('localhost','root','','fruitables');
 $id =$_GET['id'];
-$data=$con->query('select * from feature_products where id='.$id)->fetch_assoc();
+$data=$con->query('select * from organic_vegetable where id='.$id)->fetch_assoc();
 header('Content-Type: Application/json');
 echo json_encode($data);

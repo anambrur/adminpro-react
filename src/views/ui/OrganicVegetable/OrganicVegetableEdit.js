@@ -2,37 +2,37 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function ProductEdit() {
+export default function OrganicVegetableEdit() {
   const { id } = useParams();
-  const [prodName, setProdName] = useState("");
-  const [prodDetails, setProdDetails] = useState("");
-  const [prodPrice, setProdPrice] = useState("");
-  const [prodPhoto, setProdPhoto] = useState("");
+  const [orgaprodName, setorgaProdName] = useState("");
+  const [orgaprodDetails, setorgaProdDetails] = useState("");
+  const [orgaprodPrice, setorgaProdPrice] = useState("");
+  const [orgaprodPhoto, setorgaProdPhoto] = useState("");
 
   const navi = useNavigate();
   useEffect(() => {
     axios
       .get(
-        `http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/getIDProduct.php?id=${id}`
+        `http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/getIDOrganicVegetable.php?id=${id}`
       )
       .then((res) => {
-        setProdName(res.data.name);
-        setProdDetails(res.data.details);
-        setProdPrice(res.data.price);
-        setProdPhoto(res.data.photo);
+        setorgaProdName(res.data.title);
+        setorgaProdDetails(res.data.details);
+        setorgaProdPrice(res.data.price);
+        setorgaProdPhoto(res.data.photo);
       });
   }, []);
 
   const saveProduct = () => {
     const formdata = new FormData();
-    formdata.append("prodName", prodName);
-    formdata.append("prodDetails", prodDetails);
-    formdata.append("prodPrice", prodPrice);
-    formdata.append("prodPhoto", prodPhoto);
+    formdata.append("orgaprodName", orgaprodName);
+    formdata.append("orgaprodDetails", orgaprodDetails);
+    formdata.append("orgaprodPrice", orgaprodPrice);
+    formdata.append("orgaprodPhoto", orgaprodPhoto);
     formdata.append("id", id);
     axios
       .post(
-        "http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/updateProduct.php",
+        "http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/updateOrganicVegetable.php",
         formdata,
         {
           headers: {
@@ -42,11 +42,11 @@ export default function ProductEdit() {
       )
       .then((res) => {
         console.log(res.data);
-        setProdName("");
-        setProdDetails("");
-        setProdPrice("");
-        setProdPhoto("");
-        navi("/product-list");
+        setorgaProdName("");
+        setorgaProdDetails("");
+        setorgaProdPrice("");
+        setorgaProdPhoto("");
+        navi("/organic-vegetable-list");
       });
   };
 
@@ -62,8 +62,8 @@ export default function ProductEdit() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setProdName(e.target.value)}
-                  value={prodName}
+                  onChange={(e) => setorgaProdName(e.target.value)}
+                  value={orgaprodName}
                 />
               </div>
               <div className="mb-3">
@@ -71,8 +71,8 @@ export default function ProductEdit() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setProdDetails(e.target.value)}
-                  value={prodDetails}
+                  onChange={(e) => setorgaProdDetails(e.target.value)}
+                  value={orgaprodDetails}
                 />
               </div>
               <div className="mb-3">
@@ -80,8 +80,8 @@ export default function ProductEdit() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setProdPrice(e.target.value)}
-                  value={prodPrice}
+                  onChange={(e) => setorgaProdPrice(e.target.value)}
+                  value={orgaprodPrice}
                 />
               </div>
               <div className="mb-3">
@@ -89,7 +89,7 @@ export default function ProductEdit() {
                 <input
                   type="file"
                   className="form-control"
-                  onChange={(e) => setProdPhoto(e.target.files[0])}
+                  onChange={(e) => setorgaProdPhoto(e.target.files[0])}
                 />
               </div>
 

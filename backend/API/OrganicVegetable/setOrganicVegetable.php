@@ -4,20 +4,20 @@ header('Access-Control-Allow-Headers: Content-Type, X-Requested-With');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, DELETE, PUT');
 
 $con = new mysqli('localhost', 'root', '', 'fruitables');
-$feaprodName = $_POST['feaprodName'];
-$feaprodDetails = $_POST['feaprodDetails'];
+$orgaprodName = $_POST['orgaprodName'];
+$orgaprodDetails = $_POST['orgaprodDetails'];
+$orgaprodPrice = $_POST['orgaprodPrice'];
 
 $target_dir = "../../images/";
-$target_file = $target_dir . basename($_FILES["feaprodPhoto"]["name"]);
-if (move_uploaded_file($_FILES["feaprodPhoto"]["tmp_name"], $target_file)) {
-    $feaprodPhoto = $_FILES["feaprodPhoto"]["name"];
+$target_file = $target_dir . basename($_FILES["orgaprodPhoto"]["name"]);
+if (move_uploaded_file($_FILES["orgaprodPhoto"]["tmp_name"], $target_file)) {
+    $orgaprodPhoto = $_FILES["orgaprodPhoto"]["name"];
 } else {
-    $feaprodPhoto='';
+    $orgaprodPhoto='';
 }
 
-
-$query = "insert into feature_products(name,details,photo)values('$feaprodName','$feaprodDetails','$feaprodPhoto')";
-if ($feaprodName != '' && $feaprodDetails != '' && $feaprodPhoto != '') {
+$query = "insert into organic_vegetable(title,details,price,photo)values('$orgaprodName','$orgaprodDetails','$orgaprodPrice','$orgaprodPhoto')";
+if ($orgaprodName != '' && $orgaprodDetails != '' && $orgaprodPhoto != '') {
     $con->query($query);
     echo json_encode(['status'=>true]);
 }else{

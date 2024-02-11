@@ -2,21 +2,21 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function ProductAdd() {
-  const [prodName, setProdName] = useState("");
-  const [prodDetails, setProdDetails] = useState("");
-  const [prodPrice, setProdPrice] = useState("");
-  const [prodPhoto, setProdPhoto] = useState("");
+export default function OrganicVegetableAdd() {
+  const [orgaprodName, setorgaProdName] = useState("");
+  const [orgaprodDetails, setorgaProdDetails] = useState("");
+  const [orgaprodPrice, setorgaProdPrice] = useState("");
+  const [orgaprodPhoto, setorgaProdPhoto] = useState("");
   const navi = useNavigate();
   const saveProduct = () => {
     const formdata = new FormData();
-    formdata.append("prodName", prodName);
-    formdata.append("prodDetails", prodDetails);
-    formdata.append("prodPrice", prodPrice);
-    formdata.append("prodPhoto", prodPhoto);
+    formdata.append("orgaprodName", orgaprodName);
+    formdata.append("orgaprodDetails", orgaprodDetails);
+    formdata.append("orgaprodPrice", orgaprodPrice);
+    formdata.append("orgaprodPhoto", orgaprodPhoto);
     axios
       .post(
-        "http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/setProduct.php",
+        "http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/setOrganicVegetable.php",
         formdata,
         {
           headers: {
@@ -26,7 +26,7 @@ export default function ProductAdd() {
       )
       .then((res) => {
         console.log(res.data);
-        navi("/product-list");
+        navi("/organic-vegetable-list");
       });
   };
 
@@ -41,7 +41,7 @@ export default function ProductAdd() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setProdName(e.target.value)}
+                  onChange={(e) => setorgaProdName(e.target.value)}
                 />
               </div>
               <div className="mb-3">
@@ -49,7 +49,7 @@ export default function ProductAdd() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setProdDetails(e.target.value)}
+                  onChange={(e) => setorgaProdDetails(e.target.value)}
                 />
               </div>
               <div className="mb-3">
@@ -57,7 +57,7 @@ export default function ProductAdd() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setProdPrice(e.target.value)}
+                  onChange={(e) => setorgaProdPrice(e.target.value)}
                 />
               </div>
               <div className="mb-3">
@@ -65,7 +65,7 @@ export default function ProductAdd() {
                 <input
                   type="file"
                   className="form-control"
-                  onChange={(e) => setProdPhoto(e.target.files[0])}
+                  onChange={(e) => setorgaProdPhoto(e.target.files[0])}
                 />
               </div>
 

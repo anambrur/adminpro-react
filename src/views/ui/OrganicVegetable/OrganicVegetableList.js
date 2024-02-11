@@ -14,7 +14,7 @@ export default function ProductList() {
   const ProdDelete = (id) => {
     axios
       .get(
-        `http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/delProduct.php?id=${id}`
+        `http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/delOrganicVegetable.php?id=${id}`
       )
       .then((res) => {
         console.log(res.data);
@@ -65,14 +65,14 @@ export default function ProductList() {
                         {d.photo}
                       </td>
                       <td>
-                        <NavLink to={`/product-edit/${d.id}`}>
+                        <NavLink to={`/organic-vegetable-edit/${d.id}`}>
                           <i
                             className="far fa-edit me-2"
                             style={{ color: "green" }}
                           ></i>
                         </NavLink>
 
-                        <NavLink to="/product-list">
+                        <NavLink to="/organic-vegetable-list">
                           <i
                             className="fas fa-trash"
                             style={{ color: "red" }}

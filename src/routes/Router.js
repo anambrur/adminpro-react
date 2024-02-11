@@ -11,6 +11,7 @@ import FeatureProductAdd from "../views/ui/FeatureProducts/FeatureProductAdd.js"
 import FeatureProductEdit from "../views/ui/FeatureProducts/FeatureProductEdit.js";
 import OrganicVegetableList from "../views/ui/OrganicVegetable/OrganicVegetableList.js";
 import OrganicVegetableadd from "../views/ui/OrganicVegetable/OrganicVegetableAdd.js";
+import OrganicVegetableEdit from "../views/ui/OrganicVegetable/OrganicVegetableEdit.js";
 
 
 /****Layouts*****/
@@ -58,6 +59,7 @@ const ThemeRoutes = [
       { path: "/feature-product-edit/:id", exact: true, element: <FeatureProductEdit/> },
       { path: "/organic-vegetable-list", exact: true, element: <OrganicVegetableList/> },
       { path: "/organic-vegetable-add", exact: true, element: <OrganicVegetableadd/> },
+      { path: "/organic-vegetable-edit/:id", exact: true, element: <OrganicVegetableEdit/> },
     ],
   },
 ];

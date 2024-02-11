@@ -7,6 +7,6 @@ $con = new mysqli('localhost', 'root', '', 'fruitables');
 
 $id=$_GET['id'];
 
-$data=$con->query('delete from feature_products where id='.$id);
+$data=$con->query('delete from organic_vegetable where id='.$id);
 
 echo json_encode(['status'=>true]);
