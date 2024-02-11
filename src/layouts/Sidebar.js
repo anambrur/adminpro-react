@@ -28,13 +28,13 @@ const navigation = [
     icon: "bi bi-card-text",
   },
   {
-    title: "Grid",
-    href: "/grid",
+    title: "Banner",
+    href: "/banner-list",
     icon: "bi bi-columns",
   },
   {
-    title: "Table",
-    href: "/table",
+    title: "Clients",
+    href: "/clients-list",
     icon: "bi bi-layout-split",
   },
   {

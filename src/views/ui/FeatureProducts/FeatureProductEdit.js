@@ -48,7 +48,7 @@ export default function FeatureProductEdit() {
 
   return (
     <>
-      <h1>Product Edit Page</h1>
+      <h1>Feature Product Edit Page</h1>
       <div className="container">
         <div className="row">
           <div className="col-md-6">

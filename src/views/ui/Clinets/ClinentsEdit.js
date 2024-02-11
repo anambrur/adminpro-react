@@ -2,37 +2,37 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function OrganicVegetableEdit() {
+export default function ClientsEdit() {
   const { id } = useParams();
-  const [orgaprodName, setorgaProdName] = useState("");
-  const [orgaprodDetails, setorgaProdDetails] = useState("");
-  const [orgaprodPrice, setorgaProdPrice] = useState("");
-  const [orgaprodPhoto, setorgaProdPhoto] = useState("");
+  const [clientName, setClientName] = useState("");
+  const [clientDetails, setClientDetails] = useState("");
+  const [clinentProfession, setClinentProfession] = useState("");
+  const [clinetPhoto, setclinetPhoto] = useState("");
 
   const navi = useNavigate();
   useEffect(() => {
     axios
       .get(
-        `http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/getIDOrganicVegetable.php?id=${id}`
+        `http://localhost/reactjs/adminpro-react/backend/API/Clinets/getIDClients.php?id=${id}`
       )
       .then((res) => {
-        setorgaProdName(res.data.title);
-        setorgaProdDetails(res.data.details);
-        setorgaProdPrice(res.data.price);
-        setorgaProdPhoto(res.data.photo);
+        setClientName(res.data.client_name);
+        setClientDetails(res.data.details);
+        setClinentProfession(res.data.profession);
+        setclinetPhoto(res.data.photo);
       });
   }, []);
 
-  const saveProduct = () => {
+  const saveFeatureProduct = () => {
     const formdata = new FormData();
-    formdata.append("orgaprodName", orgaprodName);
-    formdata.append("orgaprodDetails", orgaprodDetails);
-    formdata.append("orgaprodPrice", orgaprodPrice);
-    formdata.append("orgaprodPhoto", orgaprodPhoto);
+    formdata.append("clientName", clientName);
+    formdata.append("clientDetails", clientDetails);
+    formdata.append("clinentProfession", clinentProfession);
+    formdata.append("clinetPhoto", clinetPhoto);
     formdata.append("id", id);
     axios
       .post(
-        "http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/updateOrganicVegetable.php",
+        "http://localhost/reactjs/adminpro-react/backend/API/Clinets/updateClients.php",
         formdata,
         {
           headers: {
@@ -42,28 +42,28 @@ export default function OrganicVegetableEdit() {
       )
       .then((res) => {
         console.log(res.data);
-        setorgaProdName("");
-        setorgaProdDetails("");
-        setorgaProdPrice("");
-        setorgaProdPhoto("");
-        navi("/organic-vegetable-list");
+        setClientName("");
+        setClientDetails("");
+        setClinentProfession("");
+        setclinetPhoto("");
+        navi("/clients-list");
       });
   };
 
   return (
     <>
-      <h1>Organic Vegetable Edit Page</h1>
+      <h1>Clients Edit Page</h1>
       <div className="container">
         <div className="row">
           <div className="col-md-6">
             <form>
               <div className="mb-3">
-                <label className="form-label">Name</label>
+                <label className="form-label">Client Name</label>
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setorgaProdName(e.target.value)}
-                  value={orgaprodName}
+                  onChange={(e) => setClientName(e.target.value)}
+                  value={clientName}
                 />
               </div>
               <div className="mb-3">
@@ -71,32 +71,33 @@ export default function OrganicVegetableEdit() {
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setorgaProdDetails(e.target.value)}
-                  value={orgaprodDetails}
+                  onChange={(e) => setClientDetails(e.target.value)}
+                  value={clientDetails}
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label">Price</label>
+                <label className="form-label">Profession</label>
                 <input
                   type="text"
                   className="form-control"
-                  onChange={(e) => setorgaProdPrice(e.target.value)}
-                  value={orgaprodPrice}
+                  onChange={(e) => setClinentProfession(e.target.value)}
+                  value={clinentProfession}
                 />
               </div>
+             
               <div className="mb-3">
                 <label className="form-label">Image</label>
                 <input
                   type="file"
                   className="form-control"
-                  onChange={(e) => setorgaProdPhoto(e.target.files[0])}
+                  onChange={(e) => setclinetPhoto(e.target.files[0])}
                 />
               </div>
 
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={saveProduct}
+                onClick={saveFeatureProduct}
               >
                 Submit
               </button>

@@ -12,6 +12,12 @@ import FeatureProductEdit from "../views/ui/FeatureProducts/FeatureProductEdit.j
 import OrganicVegetableList from "../views/ui/OrganicVegetable/OrganicVegetableList.js";
 import OrganicVegetableadd from "../views/ui/OrganicVegetable/OrganicVegetableAdd.js";
 import OrganicVegetableEdit from "../views/ui/OrganicVegetable/OrganicVegetableEdit.js";
+import BannerList from "../views/ui/Banner/BannerList.js";
+import BannerAdd from "../views/ui/Banner/BannerAdd.js";
+import BannerEdit from "../views/ui/Banner/BannerEdit.js";
+import ClientsList from "../views/ui/Clinets/ClinentsList.js";
+import ClientAdd from "../views/ui/Clinets/ClinentsAdd.js";
+import ClientsEdit from "../views/ui/Clinets/ClinentsEdit.js";
 
 
 /****Layouts*****/
@@ -60,6 +66,12 @@ const ThemeRoutes = [
       { path: "/organic-vegetable-list", exact: true, element: <OrganicVegetableList/> },
       { path: "/organic-vegetable-add", exact: true, element: <OrganicVegetableadd/> },
       { path: "/organic-vegetable-edit/:id", exact: true, element: <OrganicVegetableEdit/> },
+      { path: "/banner-list", exact: true, element: <BannerList/> },
+      { path: "/banner-add", exact: true, element: <BannerAdd/> },
+      { path: "/banner-edit/:id", exact: true, element: <BannerEdit/> },
+      { path: "/clients-list", exact: true, element: <ClientsList/> },
+      { path: "/client-add", exact: true, element: <ClientAdd/> },
+      { path: "/client-edit/:id", exact: true, element: <ClientsEdit/> },
     ],
   },
 ];
