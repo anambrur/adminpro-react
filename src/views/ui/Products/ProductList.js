@@ -8,7 +8,7 @@ export default function ProductList() {
   useEffect(() => {
     axios
       .get("http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/getProduct.php")
-      .then((res) => setProduct(res.data));
+      .then((res) => setProduct(res.data.data));
   }, []);
 
   const ProdDelete = (id) => {
@@ -22,7 +22,7 @@ export default function ProductList() {
           .get(
             "http://localhost/reactjs/adminpro-react/backend/API/ProductAPI/getProduct.php"
           )
-          .then((res) => setProduct(res.data));
+          .then((res) => setProduct(res.data.data));
       });
   };
 

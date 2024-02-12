@@ -8,7 +8,7 @@ export default function FeatureProductList() {
   useEffect(() => {
     axios
       .get("http://localhost/reactjs/adminpro-react/backend/API/FeatureProducts/getFeatProduct.php")
-      .then((res) => setFeatureProduct(res.data));
+      .then((res) => setFeatureProduct(res.data.data));
   }, []);
 
   const FeatProdDelete = (id) => {
@@ -22,7 +22,7 @@ export default function FeatureProductList() {
           .get(
             "http://localhost/reactjs/adminpro-react/backend/API/FeatureProducts/getFeatProduct.php"
           )
-          .then((res) => setFeatureProduct(res.data));
+          .then((res) => setFeatureProduct(res.data.data));
       });
   };
 

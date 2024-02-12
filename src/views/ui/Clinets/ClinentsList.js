@@ -8,7 +8,7 @@ export default function ClientsList() {
   useEffect(() => {
     axios
       .get("http://localhost/reactjs/adminpro-react/backend/API/Clinets/getClients.php")
-      .then((res) => setClinets(res.data));
+      .then((res) => setClinets(res.data.data));
   }, []);
 
   const ClientDelete = (id) => {
@@ -22,7 +22,7 @@ export default function ClientsList() {
           .get(
             "http://localhost/reactjs/adminpro-react/backend/API/Clinets/getClients.php"
           )
-          .then((res) => setClinets(res.data));
+          .then((res) => setClinets(res.data.data));
       });
   };
 

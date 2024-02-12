@@ -22,7 +22,7 @@ export default function SliderList() {
           .get(
             "http://localhost/reactjs/adminpro-react/backend/API/SliderAPI/getSlider.php"
           )
-          .then((res) => setProducts(res.data));
+          .then((res) => setProducts(res.data.data));
       });
   };
 

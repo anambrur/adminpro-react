@@ -8,7 +8,7 @@ export default function BannerList() {
   useEffect(() => {
     axios
       .get("http://localhost/reactjs/adminpro-react/backend/API/Banner/getBanner.php")
-      .then((res) => setadvertisment(res.data));
+      .then((res) => setadvertisment(res.data.data));
   }, []);
 
   const BannerDelete = (id) => {
@@ -22,7 +22,7 @@ export default function BannerList() {
           .get(
             "http://localhost/reactjs/adminpro-react/backend/API/Banner/getBanner.php"
           )
-          .then((res) => setadvertisment(res.data));
+          .then((res) => setadvertisment(res.data.data));
       });
   };
 

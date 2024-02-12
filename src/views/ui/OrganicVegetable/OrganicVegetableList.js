@@ -8,7 +8,7 @@ export default function ProductList() {
   useEffect(() => {
     axios
       .get("http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/getOrganicVegetable.php")
-      .then((res) => setorganicVegetable(res.data));
+      .then((res) => setorganicVegetable(res.data.data));
   }, []);
 
   const ProdDelete = (id) => {
@@ -22,7 +22,7 @@ export default function ProductList() {
           .get(
             "http://localhost/reactjs/adminpro-react/backend/API/OrganicVegetable/getOrganicVegetable.php"
           )
-          .then((res) => setorganicVegetable(res.data));
+          .then((res) => setorganicVegetable(res.data.data));
       });
   };
 
