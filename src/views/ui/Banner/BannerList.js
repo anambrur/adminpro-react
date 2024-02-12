@@ -11,29 +11,29 @@ export default function BannerList() {
       .then((res) => setadvertisment(res.data.data));
   }, []);
 
-  const BannerDelete = (id) => {
-    axios
-      .get(
-        `http://localhost/reactjs/adminpro-react/backend/API/Banner/delBanner.php?id=${id}`
-      )
-      .then((res) => {
-        console.log(res.data);
-        axios
-          .get(
-            "http://localhost/reactjs/adminpro-react/backend/API/Banner/getBanner.php"
-          )
-          .then((res) => setadvertisment(res.data.data));
-      });
-  };
+  // const BannerDelete = (id) => {
+  //   axios
+  //     .get(
+  //       `http://localhost/reactjs/adminpro-react/backend/API/Banner/delBanner.php?id=${id}`
+  //     )
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       axios
+  //         .get(
+  //           "http://localhost/reactjs/adminpro-react/backend/API/Banner/getBanner.php"
+  //         )
+  //         .then((res) => setadvertisment(res.data.data));
+  //     });
+  // };
 
   return (
     <>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <NavLink to="/banner-add" className="btn btn-warning my-2">
-              Add Feature Product
-            </NavLink>
+            {/* <NavLink to="/banner-add" className="btn btn-warning my-2">
+              Add Banner Product
+            </NavLink> */}
             <table className="table table-bordered">
               <thead>
                 <tr>
@@ -73,13 +73,13 @@ export default function BannerList() {
                           ></i>
                         </NavLink>
 
-                        <NavLink to="/banner-list">
+                        {/* <NavLink to="/banner-list">
                           <i
                             className="fas fa-trash"
                             style={{ color: "red" }}
                             onClick={() => BannerDelete(d.id)}
                           ></i>
-                        </NavLink>
+                        </NavLink> */}
                       </td>
                     </tr>
                   );
