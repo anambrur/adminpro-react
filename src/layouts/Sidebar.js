@@ -37,12 +37,6 @@ const navigation = [
     href: "/clients-list",
     icon: "bi bi-layout-split",
   },
-  {
-    title: "Forms",
-    href: "/forms",
-    icon: "bi bi-textarea-resize",
-  },
-
 ];
 
 const Sidebar = () => {
@@ -79,15 +73,7 @@ const Sidebar = () => {
               </Link>
             </NavItem>
           ))}
-          <Button
-            color="danger"
-            tag="a"
-            target="_blank"
-            className="mt-3"
-            href="https://www.wrappixel.com/templates/adminpro-react-redux-admin/?ref=33"
-          >
-            Upgrade To Pro
-          </Button>
+         
         </Nav>
       </div>
     </div>
